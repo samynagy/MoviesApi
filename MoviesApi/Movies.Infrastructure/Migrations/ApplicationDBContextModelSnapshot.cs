@@ -3,11 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MoviesApi.Models;
+using Movies.Infrastructure.Data;
+using Movies.Infrastructure.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace MoviesApi.Migrations
+namespace Movies.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
     partial class ApplicationDBContextModelSnapshot : ModelSnapshot
@@ -21,7 +23,7 @@ namespace MoviesApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MoviesApi.Models.Genre", b =>
+            modelBuilder.Entity("Movies.Domain.Entities.Genre", b =>
                 {
                     b.Property<byte>("Id")
                         .ValueGeneratedOnAdd()
@@ -39,7 +41,7 @@ namespace MoviesApi.Migrations
                     b.ToTable("Genres");
                 });
 
-            modelBuilder.Entity("MoviesApi.Models.Movie", b =>
+            modelBuilder.Entity("Movies.Domain.Entities.Movie", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -77,9 +79,9 @@ namespace MoviesApi.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("MoviesApi.Models.Movie", b =>
+            modelBuilder.Entity("Movies.Domain.Entities.Movie", b =>
                 {
-                    b.HasOne("MoviesApi.Models.Genre", "Genre")
+                    b.HasOne("Movies.Domain.Entities.Genre", "Genre")
                         .WithMany()
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -1,8 +1,9 @@
-
+using Movies.Application.Interfaces;
+using Movies.Application.Services;
+using Movies.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using MoviesApi.Models;
-
+using Movies.Infrastructure.Data;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,12 @@ builder.Services.AddDbContext<ApplicationDBContext>(
         optiion=>
                 optiion.UseSqlServer(connectionString)
     );
+
+builder.Services.AddScoped<IGenreRepository, GenreRepository>();
+builder.Services.AddScoped<IGenreService, GenreService>();
+builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();

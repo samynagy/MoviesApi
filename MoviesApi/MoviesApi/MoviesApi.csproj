@@ -19,8 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Business\Business.csproj" />
-    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\Movies.Application\Movies.Application.csproj" />
+    <ProjectReference Include="..\Movies.Infrastructure\Movies.Infrastructure.csproj" />
+    <ProjectReference Include="..\Movies.Domain\Movies.Domain.csproj" />
   </ItemGroup>
 
 </Project>

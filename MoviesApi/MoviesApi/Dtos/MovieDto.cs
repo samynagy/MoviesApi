@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Movies.Domain.Entities;
+using System.ComponentModel.DataAnnotations;
 
-namespace MoviesApi.Models
+namespace MoviesApi.Dtos
 {
-    public class Movie
+    public class MovieDto
     {
-        public int Id { get; set; }
         [MaxLength(250)]
         public string Tilte { get; set; }
 
@@ -12,12 +12,10 @@ namespace MoviesApi.Models
         public decimal Rate { get; set; }
         [MaxLength(500)]
         public string Storyline { get; set; }
-        public byte[] Poster { get; set; }
+        public IFormFile? Poster { get; set; }
 
 
         public byte GenreId { get; set; }
-        public Genre Genre { get; set; }
-
 
     }
 }
